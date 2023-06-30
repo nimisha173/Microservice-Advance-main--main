@@ -17,18 +17,18 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-    @Autowired
-    private UserRepository repo;
+//    @Autowired
+//    private UserRepository repo;
 
     @PostMapping("/add")
     public ResponseEntity<User> saveUser(@RequestBody User user) {
         User savedUser = userService.saveUser(user);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
     }
-    @GetMapping()
-    public List<User> getall(){
-        return repo.findAll();
-    }
+//    @GetMapping()
+//    public List<User> getall(){
+//        return repo.findAll();
+//    }
     @GetMapping("/get/{userId}")
     public ResponseEntity<ResponseTemplateVO> getUserWithDepartment(@PathVariable Long userId) {
         ResponseTemplateVO response = userService.getUser(userId);
